@@ -84,8 +84,8 @@ public class MyCard implements Card {
     }
 
     public boolean checkPin(int p) {
-        if (this.pin == p && endPersonalization() && !this.isBlocked) {
-            return  true;
+        if (this.pin == p && endPersonalization() && this.isBlocked()==true) {
+            return true;
         }
         else if(this.pin != p && endPersonalization() && !this.isBlocked) {
             nbAuthentification++;

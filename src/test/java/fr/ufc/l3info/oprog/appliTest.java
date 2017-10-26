@@ -6,6 +6,7 @@ import org.mockito.Mockito;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.anyInt;
 
 public class appliTest {
@@ -42,6 +43,9 @@ public class appliTest {
     @Test
     public void testInsertCard2() throws ATM.NullCardException {
         // definition du comportement voulu : isBlocked doit retourner true
+        card.checkPin(4321);
+        card.checkPin(4321);
+        card.checkPin(4321);
         int r = atm.insertCard(card);
         assertEquals(-2, r);
     }
@@ -52,8 +56,13 @@ public class appliTest {
         // insert la carte
         int r = atm.insertCard(card);
         assertEquals(0, r);
+        // definition du comportement voulu : isBlocked doit retourner true
+        card.checkPin(4321);
+        card.checkPin(4321);
+        card.checkPin(4321);
+        assertTrue(card.isBlocked());
         // tape le code PIN
-        r = atm.inputPin(4321);
+        r = atm.inputPin(1234);
         assertEquals(-3, r);
     }
 
