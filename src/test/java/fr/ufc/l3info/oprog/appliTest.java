@@ -10,7 +10,7 @@ import static org.mockito.ArgumentMatchers.anyInt;
 
 public class appliTest {
     private ATM atm;
-    private Card card;
+    private MyCard card;
     private Account account;
 
     @Before
@@ -18,6 +18,8 @@ public class appliTest {
         atm = new ATM();
         account = new Account(100);
         card = new MyCard();
+        card.setAccount(account);
+        card.setPin(0101);
     }
 
     /** Insertion d'une carte null */
