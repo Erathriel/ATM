@@ -150,8 +150,16 @@ public class appliTest {
         r = atm.inputPin(1234);
         assertEquals(0, r);
         r = atm.chooseAmount(100);
-        atm.takeCard();
-        atm.takeBills();
+        Card c = atm.takeCard();
+        assertEquals(card, c);
+        int[] b = atm.takeBills();
+        assertFalse(b == null);
+        int total = 0;
+        for (int i=0; i < b.length; i++) {
+            total += b[i];
+        }
+        assertEquals(100, total);
+
         r = atm.insertCard(card);
         assertEquals(0, r);
         r = atm.inputPin(1234);
@@ -189,4 +197,22 @@ public class appliTest {
         Card r = atm.takeCard();
         assertEquals(null, r);
     }
+
+    @Test
+    public void testCreditEtDebit() {
+        card.getAccount().credit(120);
+        assertTrue(card.getAccount().balance==220);
+        assertFalse(card.getAccount().debit(230));
+
+    }
+
+    @Test
+    public void testCard() {
+        assertFalse(card.setAccount(null));
+        assertFalse(card.setPin(4321));
+
+    }
+
+
+
 }
