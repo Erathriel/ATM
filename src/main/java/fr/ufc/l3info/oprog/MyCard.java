@@ -84,10 +84,10 @@ public class MyCard implements Card {
     }
 
     public boolean checkPin(int p) {
-        if (this.pin == p && endPersonalization() && this.isBlocked()==false) {
+        if (this.pin == p && isCustom && !this.isBlocked()) {
             return true;
         }
-        else if(this.pin != p && endPersonalization() && !this.isBlocked) {
+        else if(this.pin != p && isCustom && !this.isBlocked) {
             nbAuthentification++;
             if (nbAuthentification == 3) {
                 this.isBlocked=true;
