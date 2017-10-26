@@ -214,7 +214,7 @@ public class appliTest {
         assertFalse(c2.setAccount(null));
         assertEquals(null, c2.getAccount());
         assertFalse(c2.endPersonalization());
-        assertFalse(card.setPin(-1));
+        assertFalse(c2.setPin(54321));
 
     }
 
