@@ -145,8 +145,14 @@ public class appliTest {
     /** Demande de retrait d'une somme non autorisée */
     @Test
     public void testChooseAmount8() throws ATM.NullCardException {
-        card.getAccount().debit(100);
         int r = atm.insertCard(card);
+        assertEquals(0, r);
+        r = atm.inputPin(1234);
+        assertEquals(0, r);
+        r = atm.chooseAmount(100);
+        atm.takeCard();
+        atm.takeBills();
+        r = atm.insertCard(card);
         assertEquals(0, r);
         r = atm.inputPin(1234);
         assertEquals(0, r);
