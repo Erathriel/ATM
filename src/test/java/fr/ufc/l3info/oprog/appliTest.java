@@ -60,7 +60,7 @@ public class appliTest {
         card.checkPin(4321);
         card.checkPin(4321);
         card.checkPin(4321);
-        assertTrue(card.isBlocked());
+        assertFalse(card.checkPin(1234));
         // tape le code PIN
         r = atm.inputPin(1234);
         assertEquals(-3, r);
