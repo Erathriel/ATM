@@ -210,8 +210,16 @@ public class appliTest {
     public void testCard() {
         assertFalse(card.setAccount(null));
         assertFalse(card.setPin(4321));
+        MyCard c2 = new MyCard();
+        assertFalse(c2.setAccount(null));
+        assertEquals(null, c2.getAccount());
+        assertFalse(c2.endPersonalization());
+        assertFalse(card.setPin(-1));
 
     }
+
+
+
 
 
 
