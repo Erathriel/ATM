@@ -145,7 +145,6 @@ public class appliTest {
     /** Demande de retrait d'une somme non autorisée */
     @Test
     public void testChooseAmount8() throws ATM.NullCardException {
-        Mockito.when(account.canWithdraw(anyInt())).thenReturn(false);
         int r = atm.insertCard(card);
         assertEquals(0, r);
         r = atm.inputPin(1234);
