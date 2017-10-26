@@ -19,7 +19,8 @@ public class appliTest {
         account = new Account(100);
         card = new MyCard();
         card.setAccount(account);
-        card.setPin(0101);
+        card.setPin(1234);
+        card.endPersonalization();
     }
 
     /** Insertion d'une carte null */
@@ -41,7 +42,6 @@ public class appliTest {
     @Test
     public void testInsertCard2() throws ATM.NullCardException {
         // definition du comportement voulu : isBlocked doit retourner true
-        Mockito.when(card.isBlocked()).thenReturn(true);
         int r = atm.insertCard(card);
         assertEquals(-2, r);
     }
@@ -52,8 +52,6 @@ public class appliTest {
         // insert la carte
         int r = atm.insertCard(card);
         assertEquals(0, r);
-        // definition du comportement voulu : isBlocked doit retourner true
-        Mockito.when(card.isBlocked()).thenReturn(true);
         // tape le code PIN
         r = atm.inputPin(4321);
         assertEquals(-3, r);
