@@ -138,8 +138,8 @@ public class MyCardTest {
         assertTrue(testCard.isBlocked());
         assertTrue(testCard.setPin(1234));
         assertTrue(testCard.isBlocked());
-        Account a = Mockito.mock(Account.class);
         assertTrue(testCard.setAccount(mockedAccount));
+        assertTrue(testCard.isBlocked());
         assertTrue(testCard.endPersonalization());
         assertFalse(testCard.isBlocked());
 
