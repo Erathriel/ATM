@@ -84,7 +84,7 @@ public class MyCard implements Card {
     }
 
     public boolean checkPin(int p) {
-        if (this.pin == p && isCustom && !this.isBlocked()) {
+        if (this.pin == p && isCustom && !this.isBlocked() && p>0) {
             return true;
         }
         else if(this.pin != p && isCustom && !this.isBlocked) {
